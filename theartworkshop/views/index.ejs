@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Art Workshop</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  
+    <!--bootstrapCDN-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+    <!--VueCDN-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+    
+  </head>
+  <body>
+    <div class="container-fluid">
+    <!--For navbar having Three links(pages)-->
+    <div id="navDiv">
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+          <span class="nav-link" v-on:click="galClicked" v-bind:class="{active:isGalActive}">Gallery</span>
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" v-on:click="eveClicked" v-bind:class="{active:isEveActive}">Upcoming Events</span> <!--class="nav-link"-->
+        </li>
+        <li class="nav-item">
+          <span class="nav-link" v-on:click="ourClicked" v-bind:class="{active:isOurActive}">Our Story</span>
+        </li>
+      </ul>
+</div>
+    <!--The body, this will change according to the link clicked in the navbar-->
+      <div id='bodyDiv'>
+        <div v-show="showGal">
+            es, you can, and what’s more, Vue.js is a great Javascript framework and used in RiteKit. We use it with the Django REST Framework (Python) for the backend.
+
+            Vue.js: The learning curve is less steep, and we’re loving the results we’re seeing, since switching from Nette/php to Django REST framwork, Python and Vue.js for the front-end.
+            
+            Look into the RiteKit internships in Angellist. We work remotely, from where we live, so there’s no need to go to America to work with us.
+            
+            Our internships are in:
+            
+            Cross-platform mobile development (Flutter experience required)
+            Front-end web development (Vue.js experience required)
+            Content creation (Quora mastery or the same in Reddit is a plus)
+            PR/marketing internships
+            Other internships may be posted in the future as well.
+            If you’re coming from Quora, note that you know RiteKit from Quora and, if selected for the first interview, be prepared to explain what was wrong with the worst job you ever had.
+            
+            75 Views
+             
+            RecommendedAll
+            Aniket Patil
+            
+            Michael Brooks
+            Michael Brooks, Web Developer at Lightfoot (2016-present)
+            Answered Jun 5, 2017
+            You sure can! I just did a quick Google for “VueJS Bootstrap” and this is what I found vuejs bootstrap - Google Search.
+            
+            You need to remember that Bootstrap is just primarily a CSS file to help you begin your website journey. It has some JS to help with some of it’s set behaviours, but this can be replicated using any Javascript code you wish (you can even create the JS behaviour yourself).
+            
+            838 Views · View Upvoters
+             
+            RecommendedAll
+            Aniket Patil
+            
+            Rahmanda Wibowo
+            Rahmanda Wibowo, Front-End Developer at Bukalapak
+            Answered Jun 5, 2017
+            Yes you can.
+            
+            Bootstrap is mainly about CSS, so it won’t limit your JS framework options. Even if you want to use some of components which require you to use its own JS, the workaround won’t become a hard task.
+            
+            Edit: Well apparently some nice folks have released BootstrapVue to help people integrate Vue with Bootstrap easier. Worth to check out.
+            
+            548 Views · View Upvoters · Answer requested by Ice-T Ofosu Boateng
+             
+            h more productive than React.js. Why do some still use React?
+            
+          </div>
+        <div v-show="showEve">
+            Technically you can, though I caution strongly against it. Vue.js, Angular 2, and React.js are all JavaScript frameworks/libraries that solve very similar problems. This means that there should be no reason for you to even want to use more than one.
+
+            Take for example Vue.js and React.js. One of the biggest features that both of these frameworks offer developers is the ability to create components for reuse throughout your application. If you tried to use both of these frameworks together, you would end up with a huge mess of code since they both implement this feature in very different ways. Vue.js allow the use of, and recommends, HTML templates that are created using JavaScript components,
+            
+            React.js, on the other hand, does away with HTML templates and instead opts to keep everything within JavaScript and uses JSX to fit that need.
+            
+            So if you tried to use both of them, your application would end up being very difficult to understand and issues would arise when both of the frameworks tried to work together.
+        </div>
+        <div v-show="showOur">
+            sdsdcsdc templates and instead opts to keep everything within JavaScript and uses JSX to fit that need.
+            
+            So if you tried to use both of them, your application would end up being very difficult to understand and issues would arise when both of the frameworks tried to work together.
+        </div>
+      </div>
+    </div>
+    <script src="/javascripts/vueformat.js"></script> <!--always keep the vuestring before the body ends-->
+   
+  </body>
+</html>
