@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>The Art Workshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='/stylesheets/style.css'>
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
@@ -19,7 +20,7 @@
   <body>
     <div class="container-fluid">
     <!--For navbar having Three links(pages)-->
-    <div id="navDiv">
+    <div id="navDiv" style="justify-content:center;">
     <ul class="nav nav-pills">
         <li class="nav-item">
           <span class="nav-link" v-on:click="galClicked" v-bind:class="{active:isGalActive}">Gallery</span>
@@ -94,6 +95,21 @@
             sdsdcsdc templates and instead opts to keep everything within JavaScript and uses JSX to fit that need.
             
             So if you tried to use both of them, your application would end up being very difficult to understand and issues would arise when both of the frameworks tried to work together.
+
+            <!--team members and their cards-->
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img src="https://picsum.photos/300" alt="Avatar" style="width:300px;height:300px;">
+                </div>
+                <div class="flip-card-back">
+                  <h1>John Doe</h1> 
+                  <p>Architect & Engineer</p> 
+                  <p>We love that guy</p>
+                </div>
+              </div>
+            </div>
+
         </div>
       </div>
     </div>
