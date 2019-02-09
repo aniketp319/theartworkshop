@@ -2,6 +2,7 @@ var express = require('express');
 var session = require('express-session');
 var router = express.Router();
 
+//This function checks whether the session variable for user is set or not
 function checkAdmin(req, res,next){
   if(req.session.user){
      console.log("logged in");
@@ -12,27 +13,30 @@ function checkAdmin(req, res,next){
   }
 }
 
-/* GET home page. Gallery is the index page*/
+/* Get Index page.*/
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+/* get login page */
 router.get('/login', function(req, res, next) {
   res.render('login');
 });
 
+/*for login authentication, connected to DB.*/ 
 router.post('/adminlogin',function(req,res,next){
   un = req.body.formUsername;
   pw = req.body.formPassword;
-  console.log(un);
-  console.log(pw);
+  //console.log(un);
+  //console.log(pw);
   var db = req.db;
   var collection = db.collection('users');
-  var query = { $and:[{"username": un},{"password":pw}]};
+  var query = { $and:[{"username": un},{"password":pw}]}; //query is generated here
+  //the above query is run below and checked if the returned tuple is 1 that means the username and password exists.
   collection.count(query).then(function(count){
     if(count==1)
     {
-      req.session.user=un;
+      req.session.user=un; //session variable is set after adminlogin is authenticated
       res.redirect("/admin");
     }
     else
@@ -40,12 +44,10 @@ router.post('/adminlogin',function(req,res,next){
   });
 });
 
-router.get('/admin', checkAdmin ,function(req, res, next) {
 
-  
+//before rendering admin, it is checked whether the admin has logged in by calling checkAdmin function defined earlier.
+router.get('/admin', checkAdmin ,function(req, res, next) {
   res.render('admin');
 });
-
-
 
 module.exports = router;

@@ -1,13 +1,14 @@
 var createError = require('http-errors');
 var express = require('express');
-var session = require('express-session');
+var session = require('express-session'); //session variable added
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//database connected to express
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/artdb');
+var db = monk('localhost:27017/artdb'); //artdb is the database name 
 
 
 var indexRouter = require('./routes/index');
@@ -23,10 +24,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({secret: "Your secret key"}));
+app.use(session({secret: "Your secret key"})); //session initialized
 app.use(express.static(path.join(__dirname, 'public')));
 
-
+//database is connected here 
 app.use(function(req,res,next){
   req.db = db;
   next();
