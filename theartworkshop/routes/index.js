@@ -18,6 +18,27 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+/* About Us Page */
+router.get('/aboutus', function(req, res, next) {
+  res.render('aboutus');
+});
+/* Contact Us Page */
+router.get('/contactus', function(req, res, next) {
+  res.render('contactus');
+});
+/* Events Page */
+router.get('/events', function(req, res, next) {
+  res.render('events');
+});
+/* Event Page */
+
+/* Join Us page */
+router.get('/joinus', function(req, res, next) {
+  res.render('joinus');
+});
+
+
+/*Admin pages*/
 /* get login page */
 router.get('/login', function(req, res, next) {
   res.render('login');
@@ -43,7 +64,6 @@ router.post('/adminlogin',function(req,res,next){
     res.redirect("/login");
   });
 });
-
 
 //before rendering admin, it is checked whether the admin has logged in by calling checkAdmin function defined earlier.
 router.get('/admin', checkAdmin ,function(req, res, next) {

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact Us - The Art Workshop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/style.css">
+    <!--JQuery CDN -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+    
+    <!--bootstrapCDN-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+    <!--VueCDN-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+    <!--Google Form Polyfills WZRD -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8.1.0/lib/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.0.0/dist/fetch.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/formdata-polyfill@3.0.15/formdata.min.js"></script>
+</head>
+<body>
+    <form name="contactUsForm" id="contactUsForm">
+        <input type="text" name="contactName" placeholder="Name" required>
+        <input type="email" name="contactEmail" placeholder="Email ID" required>
+        <input type="number" name="contactNumber" placeholder="Number" required>
+        <select name="contactSubject" required>
+                <option value="About our workshops">About our workshops</option>
+                <option value="About our events">About our events</option>
+                <option value="for collab">For collab</option>
+                <option value="other">Other</option> 
+        </select>
+        <textarea name="contactMessage" placeholder="Enter your message"></textarea>
+        <input type="submit" id="submitForm">
+    </form>
+    <!--HTML forms to google sheet linked, refer to saved link on The ArtWorkshop bookmark folder-->
+    <script> 
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbwNN-8ExY6G1b1s89i-6KeqwoGV8dLY3xDDYGOjOQSkCAufleU/exec'
+      const form = document.forms['contactUsForm']
+      //const loading = document.querySelector('.js-loading')
+      //const successMessage = document.querySelector('.js-success-message')
+      //const errorMessage = document.querySelector('.js-error-message')
+
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        //showLoadingIndicator()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => showSuccessMessage(response))
+          .catch(error => showErrorMessage(error))
+      })
+
+      /*function showLoadingIndicator () {
+        form.classList.add('is-hidden')
+        loading.classList.remove('is-hidden')
+      }*/
+
+      function showSuccessMessage (response) {
+        console.log('Success!', response)
+        /*setTimeout(() => {
+          successMessage.classList.remove('is-hidden')
+          loading.classList.add('is-hidden')
+        }, 500)*/
+      }
+
+      function showErrorMessage (error) {
+        console.error('Error!', error.message)
+        /*setTimeout(() => {
+          errorMessage.classList.remove('is-hidden')
+          loading.classList.add('is-hidden')
+        }, 500)*/
+      }
+    
+    </script>
+    
+    <script src="/javascripts/vueformat.js"></script>
+</body>
+</html>
